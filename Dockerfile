@@ -1,5 +1,5 @@
 # Etapa para instalar oh-my-zsh e plugins
-FROM ruby:3.2.0-alpine AS zsh-base
+FROM ruby:3.4.4-alpine3.21 AS zsh-base
 
 RUN apk add --no-cache \
   zsh \
@@ -8,6 +8,8 @@ RUN apk add --no-cache \
   bash \
   less \
   tzdata \
+  yaml \
+  yaml-dev \
   && adduser -D app
 
 USER app
@@ -28,7 +30,7 @@ USER root
 # ---
 
 # Etapa principal da aplicação
-FROM ruby:3.2.0-alpine
+FROM ruby:3.4.4-alpine3.21
 
 ENV HOME_APP=/home/app
 ENV BUNDLE_PATH=${HOME_APP}/vendor/gems
@@ -47,6 +49,8 @@ RUN apk add --no-cache \
   jemalloc \
   zsh \
   bash \
+  yaml \
+  yaml-dev \
   less \
   curl
 

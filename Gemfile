@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.0'
+ruby '3.4.4'
 
 gem 'blueprinter', '~> 1.0', '>= 1.0.2'
 gem 'bootsnap', require: false
