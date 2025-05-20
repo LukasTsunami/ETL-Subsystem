@@ -1,24 +1,28 @@
+version: '3.8'
+
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
     command: bundle exec rails server -b 0.0.0.0
+    tty: true
+    stdin_open: true
     environment:
       DATABASE_HOST: db
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_NAME: postgres
       DATABASE_PORT: 5432
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
+      REDIS_URL: redis://redis:6379/0
     volumes:
-      - .:/myapp
+      - .:/home/app:cached               # Código-fonte
+      - bundle_path:/home/app/vendor/gems # Gems e binários preservados
     ports:
-      - "3008:3000"
+      - "3000:3000"
     depends_on:
       - db
+      - redis
     networks:
       - monitoring
 
@@ -31,13 +35,21 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "5438:5432"
+      - "5432:5432"
     networks:
       - monitoring
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - monitoring
+
+volumes:
+  pgdata:
+  bundle_path:
 
 networks:
   monitoring:
     driver: bridge
-
-volumes:
-  pgdata:

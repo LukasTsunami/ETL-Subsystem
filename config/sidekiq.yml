@@ -1,0 +1,6 @@
+:concurrency: <%= ENV.fetch("SIDEKIQ_CONCURRENCY") { 10 } %>
+:max_retries: 10
+:queues:
+  - [etl_high, 10]
+  - [etl_medium, 10]
+  - [etl_low, 10]
