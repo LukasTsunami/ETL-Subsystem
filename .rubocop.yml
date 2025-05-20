@@ -1,0 +1,139 @@
+# === Plugins ===
+plugins:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+# === Global Configuration ===
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude: # Skip linting:
+    - 'app/views/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'log/**/*'
+    - 'public/**/*'
+    - 'scripts/**/*'
+    - 'spec/rswag/**/*'
+    - 'storage/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+
+# === Layout ===
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/LineContinuationLeadingSpace:
+  Enabled: true
+
+Layout/LineContinuationSpacing:
+  Enabled: true
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
+Layout/LineLength:
+  Max: 160
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# === Lint ===
+Lint/DuplicateBranch:
+  Enabled: true
+
+Lint/EmptyBlock:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: false
+
+Lint/RedundantDirGlobSort:
+  Enabled: true
+
+Lint/SymbolConversion:
+  Enabled: true
+
+# === Metrics ===
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+# === Naming ===
+Naming/BlockForwarding:
+  Enabled: true
+
+Naming/PredicateName:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+# === Performance ===
+Performance/MapCompact:
+  Enabled: false # disabled as it is unsafe
+
+Performance/StringIdentifierArgument:
+  Enabled: true
+
+Performance/StringInclude:
+  Enabled: true
+
+# === Rails ===
+Rails/InverseOf:
+  Enabled: false
+
+# === RSpec ===
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 8
+
+RSpec/SubjectDeclaration:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
+
+# === Style ===
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
