@@ -1,0 +1,47 @@
+# === Bundler ===
+/.bundle
+
+# === Environment Files ===
+.env
+.env.*
+!.env*.example
+!/.env*.erb
+
+# === Credentials and Keys ===
+/config/master.key
+
+# === Logs and Temp Files ===
+/log/*
+!/log/.keep
+
+/tmp/*
+!/tmp/.keep
+
+# Keep pid directory but ignore its contents
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Temp storage directory
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+# === Storage ===
+/storage/*
+!/storage/.keep
+
+# === Coverage and Debug ===
+/coverage
+debug.sh
+
+# === Development Tools ===
+/.idea
+/.devcontainer
+/spec/examples.txt
+
+# === Vendor ===
+vendor/gems
+
+# === Keep Marker Files (Ignored by default) ===
+/*/.keep
